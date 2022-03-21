@@ -10,11 +10,11 @@ How to start app
 4. 
 Show all courses: http://localhost:5002/courses
 ----
-Show a specific course: http://localhost:5002/courses/<id>
+Show a specific course: http://localhost:5002/courses/< id >
 ----
 Create a new course: http://localhost:5002/newcourse     
 !! must have name: string and status: string. Must be one of "scheduled", "in_production", or "available"
 ----
-Edit a specific course: http://localhost:5002/courses/editcourse/<id>
+Edit a specific course: http://localhost:5002/courses/editcourse/< id >
 ----
-Delete a specific course: http://localhost:5002/deletecourse/<id>
+Delete a specific course: http://localhost:5002/deletecourse/< id >
