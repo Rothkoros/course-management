@@ -5,7 +5,9 @@ const CourseSchema = new mongoose.Schema(
     name: { 
       type: String, 
       unique: true, 
-      required: true }, 
+      required: true,
+      minlength: 2,
+      maxlength: 70, }, 
     status: {
       type: String,
       default: "available",
