@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 //schema for creating courses
 const CourseSchema = new mongoose.Schema(
   {
-    name: { type: String, unique: true, required: true }, 
+    name: { 
+      type: String, 
+      unique: true, 
+      required: true }, 
     status: {
       type: String,
       default: "available",
@@ -13,7 +16,7 @@ const CourseSchema = new mongoose.Schema(
     // deletedAt: String,
     // deleted: {Boolean, default: false}
   },
-  { timestamps: true},
+  { timestamps: true },
   {collection: "courses"}   
 );
 //creation of the model used for courses collection in database and schema

@@ -46,15 +46,15 @@ module.exports = {
   //edit course by selected ID
   editCourse: async (req, res) => {
     try {
-      await CourseModel.updateOne({ _id: req.params.id }, { $set: req.body }),
-      res.json(`Course ${req.params.id} has been changed`)
+      await CourseModel.updateOne({ _id: req.params.id }, { $set: req.body })
+  
     } 
     catch {
       (err) => console.error(err);
     }
     res.json(req.body);
   },
-  
+
   //delete course by selected ID
   deleteCourse: async (req, res) => {
     try {
