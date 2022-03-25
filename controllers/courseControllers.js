@@ -4,10 +4,11 @@ module.exports = {
   //get all courses
   getCourses: async (req, res) => {
     try {
-      const foundCourses = await CourseModel.find({}).sort({createdAt: 'desc'}).exec();
+      const foundCourses = await CourseModel.find({})
+        .sort({ createdAt: "desc" })
+        .exec();
       res.send(foundCourses);
-    } 
-    catch {
+    } catch {
       (err) => {
         console.error(err);
       };
@@ -18,10 +19,9 @@ module.exports = {
   getCourse: async (req, res) => {
     //grabs _id from mongoDB in the requested parameters
     try {
-     const foundCourse = await CourseModel.findById({ _id: req.params.id })
-      res.json(foundCourse)
-    } 
-    catch {
+      const foundCourse = await CourseModel.findById({ _id: req.params.id });
+      res.json(foundCourse);
+    } catch {
       (err) => {
         console.error(err);
       };
@@ -34,8 +34,7 @@ module.exports = {
     const newCourse = new CourseModel(course);
     try {
       await newCourse.save();
-    } 
-    catch {
+    } catch {
       (err) => res.send(err);
     }
 
@@ -46,10 +45,8 @@ module.exports = {
   //edit course by selected ID
   editCourse: async (req, res) => {
     try {
-      await CourseModel.updateOne({ _id: req.params.id }, { $set: req.body })
-  
-    } 
-    catch {
+      await CourseModel.updateOne({ _id: req.params.id }, { $set: req.body });
+    } catch {
       (err) => console.error(err);
     }
     res.json(req.body);
@@ -59,9 +56,8 @@ module.exports = {
   deleteCourse: async (req, res) => {
     try {
       await CourseModel.findByIdAndDelete({ _id: req.params.id });
-      res.json(`Course ${req.params.id} has been deleted`)
-    } 
-    catch {
+      res.json(`Course ${req.params.id} has been deleted`);
+    } catch {
       (err) => console.error(err);
     }
   },

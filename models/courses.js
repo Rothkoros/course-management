@@ -3,18 +3,21 @@ const mongoose = require("mongoose");
 const CourseSchema = new mongoose.Schema(
   {
     name: { 
-      type: String, 
+      type: String,
       unique: true, 
       required: true,
       minlength: 2,
-      maxlength: 70, }, 
+      maxlength: 70,
+      trim: true,
+      lowercase: true }, 
     status: {
       type: String,
       default: "available",
       enum: ["available", "in_production", "scheduled"],
       required: true,
+      trim: true
     },
-    //not using this route for soft deletions and records of deletion
+    //not using this for soft deletions and records of deletion
     // deletedAt: String,
     // deleted: {Boolean, default: false}
   },
