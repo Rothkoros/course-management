@@ -32,5 +32,6 @@ db.once("open", () => {
 //sets us to use /courses/...
 app.use("/courses", coursesRoute);
 
+const port = process.env.PORT || 8080
 //reports what port we are using
-app.listen(5002, console.log("Listening on port 5002"));
+app.listen(port, () => {console.log(`Listening on port ${port}`)});
